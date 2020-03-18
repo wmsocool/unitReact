@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { isNotEmpty } from "../common/global.js"
-import { Button } from "antd"
+import { Button, Col } from "antd"
 
 export default class ButtonUnit extends Component {
   constructor(props) {
@@ -28,13 +28,15 @@ export default class ButtonUnit extends Component {
   }
   render() {
     return (
-      <Button
-        style={{ marginRight: 5 }}
-        type="primary"
-        onClick={this.onClickFn}
-      >
-        {this.state.object.title}
-      </Button>
+      <Col span={this.state.object.span}>
+        <Button
+          style={{ marginRight: 5 }}
+          type="primary"
+          onClick={this.onClickFn}
+        >
+          {this.state.object.title}
+        </Button>
+      </Col>
     )
   }
 }

@@ -39,7 +39,8 @@ export default class InputUnit extends Component {
         <Form.Item
           required={this.state.object.required}
           label={this.state.object.title}
-          labelCol={{ span: 5, offset: 0 }}
+          labelCol={{ span: 2, offset: 0 }}
+          wrapperCol={{ span: 22, offset: 0 }}
         >
           <TextArea
             autoSize={{ minRows: 2, maxRows: 6 }}

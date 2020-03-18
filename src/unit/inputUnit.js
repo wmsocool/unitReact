@@ -40,6 +40,7 @@ export default class InputUnit extends Component {
         <Form.Item
           required={this.state.object.required}
           label={this.state.object.title}
+          {...this.state.object.formItemCol}
         >
           <Input
             placeholder={this.state.object.placeholder || ""}

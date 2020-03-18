@@ -1,107 +1,7 @@
 export var object = [
   {
-    id: "edit",
-    span: 3,
-    title: "编辑",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function(object, ovjectValue) {
-      this.editFn(object, ovjectValue)
-    }
-  },
-  {
-    id: "save",
-    span: 3,
-    title: "保存",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.typeMenuFn()
-    }
-  },
-  {
-    id: "zuofei",
-    span: 3,
-    title: "作废",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "export",
-    span: 3,
-    title: "导出",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "history",
-    span: 3,
-    title: "历史",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "upload",
-    span: 3,
-    title: "上传委托书",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "addOrder",
-    span: 3,
-    title: "新增运单",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "copyOrder",
-    span: 3,
-    title: "复制开单",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "orderNotgoods",
-    span: 3,
-    title: "开单暂不走货",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "beasCount",
-    span: 3,
-    title: "成本计算",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
     id: "key001",
-    span: 12,
+    span: 24,
     title: "按单号查询",
     required: false,
     disabled: false,
@@ -111,16 +11,6 @@ export var object = [
     unitType: "textareaUnit",
     onChange: function(object, objectValue) {
       //console.log(object, objectValue)
-    }
-  },
-  {
-    id: "key002",
-    span: 3,
-    title: "查询",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function(object, objectValue) {
-      this.searchFn(object, objectValue)
     }
   },
   {
