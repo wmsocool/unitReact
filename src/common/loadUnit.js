@@ -28,7 +28,6 @@ class CreateForm extends Component {
     return unitx
   }
   render() {
-    const { getFieldDecorator } = this.props.form
     return (
       <Row style={{ marginTop: 10 }}>
         <Form
@@ -41,17 +40,6 @@ class CreateForm extends Component {
           onSubmit={this.handleSubmit}
         >
           {this.makeUnits(this.props.objects)}
-          <Form.Item label="包仓费">
-            {getFieldDecorator(`packageStorageCharge`, {
-              rules: [
-                {
-                  required: true,
-                  type: "string",
-                  message: "必填"
-                }
-              ]
-            })(<Input placeholder="包仓费" />)}
-          </Form.Item>
         </Form>
       </Row>
     )
