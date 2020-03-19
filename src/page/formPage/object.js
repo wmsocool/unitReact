@@ -426,27 +426,3 @@ export var object = [
     }
   }
 ]
-export var data = {
-  key001: "default text",
-  key003: ["2020-03-19T01:38:52.751Z", "2020-03-20T01:38:52.751Z"],
-  key004: "1",
-  key005: { value: "guangzhou", label: "广州", key: "guangzhou" },
-  key006: { value: "shenzhen", label: "深圳", key: "shenzhen" },
-  key007: "2",
-  key008: "1",
-  key009: "sQ2Qyn2",
-  key00a: { value: "shenzhen", label: "深圳", key: "shenzhen" },
-  key00b: "sQ2Qw3",
-  key00c: ["1", "4"],
-  key00d: ["2", "4"],
-  key00e: ["3", "5"],
-  key00f: "key1",
-  key00g: "sQ2Qbo2",
-  key00h: { value: "shenzhen", label: "深圳", key: "shenzhen" },
-  key00i: { value: "shenzhen", label: "深圳", key: "shenzhen" },
-  key00j: { value: "guangzhou", label: "广州", key: "guangzhou" },
-  key00k: { value: "guangzhou", label: "广州", key: "guangzhou" },
-  key00l: "呀呀呀呀呀呀",
-  key00m: "sQ2Ql6",
-  key00n: ""
-}
