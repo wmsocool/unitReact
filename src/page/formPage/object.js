@@ -1,108 +1,8 @@
 export var object = [
   {
-    id: "edit",
-    span: 3,
-    title: "编辑",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function(object, ovjectValue) {
-      this.editFn(object, ovjectValue)
-    }
-  },
-  {
-    id: "save",
-    span: 3,
-    title: "保存",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.typeMenuFn()
-    }
-  },
-  {
-    id: "zuofei",
-    span: 3,
-    title: "作废",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "export",
-    span: 3,
-    title: "导出",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "history",
-    span: 3,
-    title: "历史",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "upload",
-    span: 3,
-    title: "上传委托书",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "addOrder",
-    span: 3,
-    title: "新增运单",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "copyOrder",
-    span: 3,
-    title: "复制开单",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "orderNotgoods",
-    span: 3,
-    title: "开单暂不走货",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
-    id: "beasCount",
-    span: 3,
-    title: "成本计算",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function() {
-      this.saveFn()
-    }
-  },
-  {
     id: "key001",
-    span: 12,
-    title: "按单号查询",
+    span: 24,
+    title: "textareaUnit",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -114,19 +14,9 @@ export var object = [
     }
   },
   {
-    id: "key002",
-    span: 3,
-    title: "查询",
-    placeholder: "",
-    unitType: "buttonUnit",
-    onClick: function(object, objectValue) {
-      this.searchFn(object, objectValue)
-    }
-  },
-  {
     id: "key003",
     span: 10,
-    title: "寄件时间",
+    title: "rangePickerUnit",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -140,7 +30,7 @@ export var object = [
   {
     id: "key004",
     span: 14,
-    title: "",
+    title: "radioUnit",
     optionals: [
       { value: "1", title: "1天" },
       { value: "3", title: "3天" },
@@ -160,7 +50,7 @@ export var object = [
   {
     id: "key005",
     span: 6,
-    title: "寄件网点",
+    title: "remoteSelectUnit",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -185,7 +75,7 @@ export var object = [
   {
     id: "key006",
     span: 6,
-    title: "派件网点",
+    title: "remoteSelectUnit",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -210,7 +100,7 @@ export var object = [
   {
     id: "key007",
     span: 6,
-    title: "寄件客户",
+    title: "inputUnit",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -224,7 +114,7 @@ export var object = [
   {
     id: "key008",
     span: 6,
-    title: "收件客户",
+    title: "inputUnit",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -238,7 +128,7 @@ export var object = [
   {
     id: "key009",
     span: 6,
-    title: "支付方式",
+    title: "selectUnit",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -257,7 +147,7 @@ export var object = [
   {
     id: "key00a",
     span: 6,
-    title: "取件员",
+    title: "remoteSelectUnit",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -282,7 +172,7 @@ export var object = [
   {
     id: "key00b",
     span: 6,
-    title: "签收状态",
+    title: "状态",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -301,7 +191,7 @@ export var object = [
   {
     id: "key00c",
     span: 6,
-    title: "重量段",
+    title: "numberRangeUnit",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -315,7 +205,7 @@ export var object = [
   {
     id: "key00d",
     span: 6,
-    title: "到付款",
+    title: "付款",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -329,7 +219,7 @@ export var object = [
   {
     id: "key00e",
     span: 6,
-    title: "代收货款",
+    title: "收款",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -343,7 +233,7 @@ export var object = [
   {
     id: "key00f",
     span: 6,
-    title: "运单状态",
+    title: "状态",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -360,7 +250,7 @@ export var object = [
   {
     id: "key00g",
     span: 6,
-    title: "订单来源",
+    title: "selectUnit",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -392,7 +282,7 @@ export var object = [
   {
     id: "key00h",
     span: 6,
-    title: "目的省份",
+    title: "city",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -417,7 +307,7 @@ export var object = [
   {
     id: "key00i",
     span: 6,
-    title: "目的城市",
+    title: "目的",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -442,7 +332,7 @@ export var object = [
   {
     id: "key00j",
     span: 6,
-    title: "目的区县",
+    title: "区县",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -467,7 +357,7 @@ export var object = [
   {
     id: "key00k",
     span: 6,
-    title: "产品名称",
+    title: "产品",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -492,7 +382,7 @@ export var object = [
   {
     id: "key00l",
     span: 6,
-    title: "开单暂不走货",
+    title: "inputUnit",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -510,7 +400,7 @@ export var object = [
   {
     id: "key00m",
     span: 6,
-    title: "调整中转费重泡比",
+    title: "selectUnit",
     required: false,
     disabled: false,
     defaultValue: "",
@@ -528,7 +418,7 @@ export var object = [
   {
     id: "key00n",
     span: 6,
-    title: "查询",
+    title: "submit",
     placeholder: "",
     unitType: "buttonUnit",
     onClick: function(object, objectValue) {
@@ -536,144 +426,27 @@ export var object = [
     }
   }
 ]
-export var data = [
-  {
-    id00: "id00",
-    id01: "id01",
-    id02: "id02",
-    id03: "id03",
-    id04: "id04",
-    id05: "id05",
-    id06: "id06",
-    id07: "id07",
-    id08: "id08",
-    id09: "id09",
-    id010: "id010",
-    id011: "id011",
-    id012: "id012",
-    id013: "id013",
-    id014: "id014",
-    id015: "id015",
-    id016: "id016",
-    id017: "id017",
-    id018: "id018",
-    id019: "id019",
-    id020: "id020",
-    id021: "id021",
-    id022: "id022",
-    id023: "id023",
-    id024: "id024",
-    id025: "id025",
-    id10: "id10",
-    id11: "id11",
-    id12: "id12",
-    id13: "id13",
-    id14: "id14",
-    id15: "id15",
-    id16: "id16",
-    id17: "id17",
-    id18: "id18",
-    id19: "id19",
-    id110: "id110",
-    id111: "id111",
-    id112: "id112",
-    id113: "id113",
-    id114: "id114",
-    id115: "id115",
-    id116: "id116",
-    id117: "id117",
-    id118: "id118",
-    id119: "id119",
-    id120: "id120",
-    id121: "id121",
-    id122: "id122",
-    id123: "id123",
-    id124: "id124",
-    id20: "id20",
-    id21: "id21",
-    id22: "id22",
-    id23: "id23",
-    id24: "id24",
-    id25: "id25",
-    id26: "id26",
-    id27: "id27",
-    id28: "id28",
-    id29: "id29",
-    id210: "id210",
-    id211: "id211",
-    id212: "id212",
-    id213: "id213",
-    id214: "id214",
-    id215: "id215",
-    id216: "id216",
-    id217: "id217",
-    id218: "id218",
-    id219: "id219",
-    id220: "id220",
-    id221: "id221",
-    id30: "id30",
-    id31: "id31",
-    id32: "id32",
-    id40: "id40",
-    id41: "id41",
-    id42: "id42",
-    id43: "id43",
-    id44: "id44",
-    id45: "id45",
-    id46: "id46",
-    id47: "id47",
-    id48: "id48",
-    id49: "id49",
-    id410: "id410",
-    id411: "id411",
-    id412: "id412",
-    id50: "id50",
-    id51: "id51",
-    id52: "id52",
-    id53: "id53",
-    id60: "id60",
-    id61: "id61",
-    id62: "id62",
-    id63: "id63",
-    id64: "id64",
-    id65: "id65",
-    id66: "id66",
-    id67: "id67",
-    id68: "id68",
-    id69: "id69",
-    id610: "id610",
-    id611: "id611",
-    id612: "id612",
-    id613: "id613",
-    id614: "id614",
-    id615: "id615",
-    id616: "id616",
-    id70: "id70",
-    id71: "id71",
-    id72: "id72",
-    id73: "id73",
-    id74: "id74",
-    id75: "id75",
-    id76: "id76",
-    id77: "id77",
-    id78: "id78",
-    id79: "id79",
-    id710: "id710",
-    id711: "id711",
-    id712: "id712",
-    id713: "id713",
-    id714: "id714",
-    id715: "id715",
-    id716: "id716",
-    id717: "id717",
-    id718: "id718",
-    id719: "id719",
-    id720: "id720",
-    id721: "id721",
-    id722: "id722",
-    id723: "id723",
-    id724: "id724",
-    id725: "id725",
-    id726: "id726"
-  }
-]
+export var data = {
+  key001: "default text",
+  key003: ["2020-03-19T01:38:52.751Z", "2020-03-20T01:38:52.751Z"],
+  key004: "1",
+  key005: { value: "guangzhou", label: "广州", key: "guangzhou" },
+  key006: { value: "shenzhen", label: "深圳", key: "shenzhen" },
+  key007: "2",
+  key008: "1",
+  key009: "sQ2Qyn2",
+  key00a: { value: "shenzhen", label: "深圳", key: "shenzhen" },
+  key00b: "sQ2Qw3",
+  key00c: ["1", "4"],
+  key00d: ["2", "4"],
+  key00e: ["3", "5"],
+  key00f: "key1",
+  key00g: "sQ2Qbo2",
+  key00h: { value: "shenzhen", label: "深圳", key: "shenzhen" },
+  key00i: { value: "shenzhen", label: "深圳", key: "shenzhen" },
+  key00j: { value: "guangzhou", label: "广州", key: "guangzhou" },
+  key00k: { value: "guangzhou", label: "广州", key: "guangzhou" },
+  key00l: "呀呀呀呀呀呀",
+  key00m: "sQ2Ql6",
+  key00n: ""
+}

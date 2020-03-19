@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Form, Row } from "antd"
+import { Form, Row, Col } from "antd"
 // import moment from "moment"
 import TheUnit from "../../common/theUnit.js"
 import {
@@ -16,7 +16,7 @@ export default class accountmanagement extends Component {
     this.state = {
       data,
       object,
-      objectValue: {}
+      objectValue: data
     }
   }
   //--------------------------Style--------------------------//
@@ -44,9 +44,13 @@ export default class accountmanagement extends Component {
   componentWillMount = function() {
     getSomeThing()
   }
-  componentDidMount = function() {}
+  componentDidMount = function() {
+    console.log(document.eventHub)
+  }
   searchFn = (object, objectValue) => {
-    console.log(object, objectValue)
+    this.setState({
+      objectValue: objectValue
+    })
   }
   handleSubmit = e => {
     e.preventDefault()
@@ -71,7 +75,7 @@ export default class accountmanagement extends Component {
     units.forEach((item, index) => {
       unitx.push(
         <TheUnit
-          key={item.id}
+          key={index}
           object={item}
           objectValue={objectValue}
           onChangeFn={this.onChangeFn}
@@ -85,20 +89,25 @@ export default class accountmanagement extends Component {
   }
   render() {
     return (
-      <Row style={{ marginTop: 10 }}>
-        <Form
-          className="formMarginClass"
-          size="small"
-          labelAlign="left"
-          hideRequiredMark={true}
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-          layout="horizontal"
-          onSubmit={this.handleSubmit}
-        >
-          {this.makeUnits(this.state.object, this.state.objectValue)}
-        </Form>
-      </Row>
+      <React.Fragment>
+        <Row style={{ marginTop: 10 }}>
+          <Form
+            className="formMarginClass"
+            size="small"
+            labelAlign="left"
+            hideRequiredMark={true}
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 16 }}
+            layout="horizontal"
+            onSubmit={this.handleSubmit}
+          >
+            {this.makeUnits(this.state.object, this.state.objectValue)}
+          </Form>
+        </Row>
+        <Row style={{ marginTop: 10 }}>
+          <Col span={24}>{JSON.stringify(this.state.objectValue)}</Col>
+        </Row>
+      </React.Fragment>
     )
   }
 }

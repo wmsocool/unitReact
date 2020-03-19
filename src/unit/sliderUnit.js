@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { isNotEmpty } from "../common/global.js"
-import { Slider, Col, Form } from "antd"
+import { Slider, Row, Col, Form } from "antd"
 
 export default class InputUnit extends Component {
   constructor(props) {
@@ -14,14 +14,25 @@ export default class InputUnit extends Component {
   componentWillMount = function() {
     if (isNotEmpty(this.state.objectValue[this.state.object.id])) {
     } else {
-      this.state.objectValue[this.state.object.id] = ""
+      this.setState(state => {
+        state.objectValue[state.object.id] = ""
+        return {
+          objectValue: state.objectValue
+        }
+      })
     }
   }
   componentDidMount = function() {
-    console.log(this.state.objectValue[this.state.object.id])
+    // console.log(this.state.objectValue[this.state.object.id])
   }
-  onChangeFn = value => {
-    this.props.objectValue[this.state.object.id] = value
+  onChangeFn = e => {
+    var value = e
+    this.setState(state => {
+      state.objectValue[state.object.id][0] = value
+      return {
+        objectValue: state.objectValue
+      }
+    })
     this.state.object.onChange &&
       this.state.object.onChange.call(
         this.props.root,

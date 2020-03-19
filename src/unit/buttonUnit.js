@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { isNotEmpty } from "../common/global.js"
-import { Button } from "antd"
+import { Button, Col } from "antd"
 
 export default class ButtonUnit extends Component {
   constructor(props) {
@@ -13,7 +13,12 @@ export default class ButtonUnit extends Component {
   componentWillMount = function() {
     if (isNotEmpty(this.state.objectValue[this.state.object.id])) {
     } else {
-      this.state.objectValue[this.state.object.id] = ""
+      this.setState(state => {
+        state.objectValue[state.object.id] = ""
+        return {
+          objectValue: state.objectValue
+        }
+      })
     }
   }
   onClickFn = e => {

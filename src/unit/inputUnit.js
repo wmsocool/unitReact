@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { isNotEmpty } from "../common/global.js"
-import { Input, Col, Form } from "antd"
+import { Input, Row, Col, Form } from "antd"
 
 export default class InputUnit extends Component {
   constructor(props) {
@@ -13,14 +13,25 @@ export default class InputUnit extends Component {
   componentWillMount = function() {
     if (isNotEmpty(this.state.objectValue[this.state.object.id])) {
     } else {
-      this.state.objectValue[this.state.object.id] = ""
+      this.setState(state => {
+        state.objectValue[state.object.id] = ""
+        return {
+          objectValue: state.objectValue
+        }
+      })
     }
   }
   componentDidMount = function() {
     // console.log(this.state.objectValue[this.state.object.id])
   }
   onChangeFn = e => {
-    this.props.objectValue[this.state.object.id] = e.target.value
+    var value = e.target.value
+    this.setState(state => {
+      state.objectValue[state.object.id] = value
+      return {
+        objectValue: state.objectValue
+      }
+    })
     this.setState({
       objectValue: this.props.objectValue
     })

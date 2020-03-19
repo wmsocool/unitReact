@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { isNotEmpty } from "../common/global.js"
-import { Col, Form, DatePicker } from "antd"
+import { Row, Col, Form, DatePicker } from "antd"
+import moment from "moment"
 const { RangePicker } = DatePicker
 
 export default class RangePickerUnit extends Component {
@@ -11,20 +12,37 @@ export default class RangePickerUnit extends Component {
       objectValue: props.objectValue
     }
   }
-  getInitialState = function() {}
   componentWillMount = function() {
     if (isNotEmpty(this.state.objectValue[this.state.object.id])) {
+      this.setState(state => {
+        state.objectValue[state.object.id][0] &&
+          (state.objectValue[state.object.id][0] = moment(
+            state.objectValue[state.object.id][0]
+          ))
+        state.objectValue[state.object.id][1] &&
+          (state.objectValue[state.object.id][1] = moment(
+            state.objectValue[state.object.id][1]
+          ))
+        return {
+          objectValue: state.objectValue
+        }
+      })
     } else {
-      this.state.objectValue[this.state.object.id] = []
+      this.setState(state => {
+        state.objectValue[state.object.id] = []
+        return {
+          objectValue: state.objectValue
+        }
+      })
     }
   }
-  componentDidMount = function() {
-    console.log(this.state.objectValue[this.state.object.id])
-  }
   onChangeFn = e => {
-    this.props.objectValue[this.state.object.id] = e
-    this.setState({
-      objectValue: this.props.objectValue
+    var value = e
+    this.setState(state => {
+      state.objectValue[state.object.id] = value
+      return {
+        objectValue: state.objectValue
+      }
     })
     this.state.object.onChange &&
       this.state.object.onChange.call(

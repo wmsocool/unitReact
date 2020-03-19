@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { isNotEmpty } from "../common/global.js"
-import { Input, Col, Form } from "antd"
+import { Input, Row, Col, Form } from "antd"
 
 export default class InputUnit extends Component {
   constructor(props) {
@@ -10,20 +10,24 @@ export default class InputUnit extends Component {
       objectValue: props.objectValue
     }
   }
-  getInitialState = function() {}
   componentWillMount = function() {
     if (isNotEmpty(this.state.objectValue[this.state.object.id])) {
     } else {
-      this.state.objectValue[this.state.object.id] = ""
+      this.setState(state => {
+        state.objectValue[state.object.id] = ["", ""]
+        return {
+          objectValue: state.objectValue
+        }
+      })
     }
   }
-  componentDidMount = function() {
-    console.log(this.state.objectValue[this.state.object.id])
-  }
-  onChangeFn = e => {
-    this.props.objectValue[this.state.object.id] = e.target.value
-    this.setState({
-      objectValue: this.props.objectValue
+  onChangeFnf = e => {
+    var value = e.target.value
+    this.setState(state => {
+      state.objectValue[state.object.id][0] = value
+      return {
+        objectValue: state.objectValue
+      }
     })
     this.state.object.onChange &&
       this.state.object.onChange.call(
@@ -32,8 +36,28 @@ export default class InputUnit extends Component {
         this.state.objectValue
       )
   }
-  alertMe = text => {
-    alert(text)
+  onChangeFns = e => {
+    var value = e.target.value
+    this.setState(state => {
+      state.objectValue[state.object.id][1] = value
+      return {
+        objectValue: state.objectValue
+      }
+    })
+    this.state.object.onChange &&
+      this.state.object.onChange.call(
+        this.props.root,
+        this.state.object,
+        this.state.objectValue
+      )
+  }
+  setValue = value => {
+    this.setState(state => {
+      state.objectValue[state.object.id] = value
+      return {
+        objectValue: state.objectValue
+      }
+    })
   }
   render() {
     return (
@@ -45,21 +69,21 @@ export default class InputUnit extends Component {
           <Input
             placeholder={this.state.object.placeholder || ""}
             disabled={this.state.object.disabled}
-            defaultValue={this.state.objectValue[this.state.object.id]}
+            defaultValue={this.state.objectValue[this.state.object.id][0]}
             style={{ width: 80 }}
             allowClear
             size="small"
-            onChange={this.onChangeFn}
+            onChange={this.onChangeFnf}
           />{" "}
           -
           <Input
             placeholder={this.state.object.placeholder || ""}
             disabled={this.state.object.disabled}
-            defaultValue={this.state.objectValue[this.state.object.id]}
+            defaultValue={this.state.objectValue[this.state.object.id][1]}
             style={{ width: 80 }}
             allowClear
             size="small"
-            onChange={this.onChangeFn}
+            onChange={this.onChangeFns}
           />
         </Form.Item>
       </Col>
