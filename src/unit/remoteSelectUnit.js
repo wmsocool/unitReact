@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { isNotEmpty } from "../common/global.js"
-import { Select, Spin, Col, Form } from "antd"
+import { Row, Select, Spin, Col, Form } from "antd"
 const { Option } = Select
 
 export default class SelectUnit extends Component {
@@ -16,18 +16,26 @@ export default class SelectUnit extends Component {
   componentWillMount = function() {
     if (isNotEmpty(this.state.objectValue[this.state.object.id])) {
     } else {
-      this.state.objectValue[this.state.object.id] = ""
+      this.setState(state => {
+        state.objectValue[state.object.id] = ""
+        return {
+          objectValue: state.objectValue
+        }
+      })
     }
   }
   componentDidMount = function() {
     // console.log(this.state.objectValue[this.state.object.id]);
   }
-  onChangeFn = value => {
-    this.props.objectValue[this.state.object.id] = value
-    this.setState({
-      data: [],
-      fetching: false,
-      objectValue: this.props.objectValue
+  onChangeFn = e => {
+    var value = e
+    this.setState(state => {
+      state.objectValue[this.state.object.id] = value
+      return {
+        data: [],
+        fetching: false,
+        objectValue: state.objectValue
+      }
     })
     this.state.object.onChange &&
       this.state.object.onChange.call(

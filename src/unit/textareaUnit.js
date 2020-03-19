@@ -3,7 +3,7 @@ import { isNotEmpty } from "../common/global.js"
 import { Input, Col, Form } from "antd"
 const { TextArea } = Input
 
-export default class InputUnit extends Component {
+export default class extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -11,18 +11,28 @@ export default class InputUnit extends Component {
       objectValue: props.objectValue
     }
   }
-  getInitialState = function() {}
   componentWillMount = function() {
     if (isNotEmpty(this.state.objectValue[this.state.object.id])) {
     } else {
-      this.state.objectValue[this.state.object.id] = ""
+      this.setState(state => {
+        state.objectValue[state.object.id] = ""
+        return {
+          objectValue: state.objectValue
+        }
+      })
     }
   }
   componentDidMount = function() {
-    console.log(this.state.objectValue[this.state.object.id])
+    // console.log(this.state.objectValue[this.state.object.id])
   }
   onChangeFn = e => {
-    this.props.objectValue[this.state.object.id] = e.target.value
+    var value = e.target.value
+    this.setState(state => {
+      state.objectValue[this.state.object.id] = value
+      return {
+        objectValue: state.objectValue
+      }
+    })
     this.state.object.onChange &&
       this.state.object.onChange.call(
         this.props.root,
@@ -40,14 +50,12 @@ export default class InputUnit extends Component {
           required={this.state.object.required}
           label={this.state.object.title}
           labelCol={{ span: 2, offset: 0 }}
-          wrapperCol={{ span: 22, offset: 0 }}
         >
           <TextArea
             autoSize={{ minRows: 2, maxRows: 6 }}
             placeholder={this.state.object.placeholder || ""}
             disabled={this.state.object.disabled}
-            defaultValue={this.state.objectValue[this.state.object.id]}
-            // style={{ width: 130 }}
+            value={this.state.objectValue[this.state.object.id]}
             allowClear
             size="small"
             onChange={this.onChangeFn}

@@ -44,7 +44,9 @@ export default class accountmanagement extends Component {
   componentWillMount = function() {
     getSomeThing()
   }
-  componentDidMount = function() {}
+  componentDidMount = function() {
+    console.log(document.eventHub)
+  }
   searchFn = (object, objectValue) => {
     console.log(object, objectValue)
   }
@@ -71,7 +73,7 @@ export default class accountmanagement extends Component {
     units.forEach((item, index) => {
       unitx.push(
         <TheUnit
-          key={item.id}
+          key={index}
           object={item}
           objectValue={objectValue}
           onChangeFn={this.onChangeFn}

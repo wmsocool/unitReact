@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { isNotEmpty } from "../common/global.js"
-import { Radio, Col, Form } from "antd"
+import { Radio, Row, Col, Form } from "antd"
 
 export default class InputUnit extends Component {
   constructor(props) {
@@ -10,20 +10,27 @@ export default class InputUnit extends Component {
       objectValue: props.objectValue
     }
   }
-  getInitialState = function() {}
   componentWillMount = function() {
     if (isNotEmpty(this.state.objectValue[this.state.object.id])) {
     } else {
-      this.state.objectValue[this.state.object.id] = 1
+      this.setState(state => {
+        state.objectValue[state.object.id] = 1
+        return {
+          objectValue: state.objectValue
+        }
+      })
     }
   }
   componentDidMount = function() {
-    console.log(this.state.objectValue[this.state.object.id])
+    // console.log(this.state.objectValue[this.state.object.id])
   }
   onChangeFn = e => {
-    this.props.objectValue[this.state.object.id] = e.target.value
-    this.setState({
-      objectValue: this.props.objectValue
+    var value = e.target.value
+    this.setState(state => {
+      state.objectValue[this.state.object.id] = value
+      return {
+        objectValue: state.objectValue
+      }
     })
     this.state.object.onChange &&
       this.state.object.onChange.call(
@@ -39,7 +46,11 @@ export default class InputUnit extends Component {
     var getOptionals = optionals => {
       var opt = []
       optionals.forEach((item, index) => {
-        opt.push(<Radio value={item.value}>{item.title}</Radio>)
+        opt.push(
+          <Radio key={index} value={item.value}>
+            {item.title}
+          </Radio>
+        )
       })
       return opt
     }

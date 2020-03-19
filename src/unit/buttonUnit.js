@@ -13,7 +13,12 @@ export default class ButtonUnit extends Component {
   componentWillMount = function() {
     if (isNotEmpty(this.state.objectValue[this.state.object.id])) {
     } else {
-      this.state.objectValue[this.state.object.id] = ""
+      this.setState(state => {
+        state.objectValue[state.object.id] = ""
+        return {
+          objectValue: state.objectValue
+        }
+      })
     }
   }
   onClickFn = e => {
@@ -28,15 +33,13 @@ export default class ButtonUnit extends Component {
   }
   render() {
     return (
-      <Col span={this.state.object.span}>
-        <Button
-          style={{ marginRight: 5 }}
-          type="primary"
-          onClick={this.onClickFn}
-        >
-          {this.state.object.title}
-        </Button>
-      </Col>
+      <Button
+        style={{ marginRight: 5 }}
+        type="primary"
+        onClick={this.onClickFn}
+      >
+        {this.state.object.title}
+      </Button>
     )
   }
 }
