@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { isNotEmpty } from "../common/global.js"
 import { Row, Col, Form, DatePicker } from "antd"
+import moment from "moment"
 const { RangePicker } = DatePicker
 
 export default class RangePickerUnit extends Component {
@@ -13,6 +14,19 @@ export default class RangePickerUnit extends Component {
   }
   componentWillMount = function() {
     if (isNotEmpty(this.state.objectValue[this.state.object.id])) {
+      this.setState(state => {
+        state.objectValue[state.object.id][0] &&
+          (state.objectValue[state.object.id][0] = moment(
+            state.objectValue[state.object.id][0]
+          ))
+        state.objectValue[state.object.id][1] &&
+          (state.objectValue[state.object.id][1] = moment(
+            state.objectValue[state.object.id][1]
+          ))
+        return {
+          objectValue: state.objectValue
+        }
+      })
     } else {
       this.setState(state => {
         state.objectValue[state.object.id] = []
@@ -25,7 +39,7 @@ export default class RangePickerUnit extends Component {
   onChangeFn = e => {
     var value = e
     this.setState(state => {
-      state.objectValue[this.state.object.id] = value
+      state.objectValue[state.object.id] = value
       return {
         objectValue: state.objectValue
       }

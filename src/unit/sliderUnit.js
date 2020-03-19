@@ -28,7 +28,7 @@ export default class InputUnit extends Component {
   onChangeFn = e => {
     var value = e
     this.setState(state => {
-      state.objectValue[this.state.object.id][0] = value
+      state.objectValue[state.object.id][0] = value
       return {
         objectValue: state.objectValue
       }

@@ -30,7 +30,7 @@ export default class SelectUnit extends Component {
   onChangeFn = e => {
     var value = e
     this.setState(state => {
-      state.objectValue[this.state.object.id] = value
+      state.objectValue[state.object.id] = value
       return {
         data: [],
         fetching: false,

@@ -24,7 +24,7 @@ export default class InputUnit extends Component {
   onChangeFnf = e => {
     var value = e.target.value
     this.setState(state => {
-      state.objectValue[this.state.object.id][0] = value
+      state.objectValue[state.object.id][0] = value
       return {
         objectValue: state.objectValue
       }
@@ -39,7 +39,7 @@ export default class InputUnit extends Component {
   onChangeFns = e => {
     var value = e.target.value
     this.setState(state => {
-      state.objectValue[this.state.object.id][1] = value
+      state.objectValue[state.object.id][1] = value
       return {
         objectValue: state.objectValue
       }
@@ -53,7 +53,7 @@ export default class InputUnit extends Component {
   }
   setValue = value => {
     this.setState(state => {
-      state.objectValue[this.state.object.id] = value
+      state.objectValue[state.object.id] = value
       return {
         objectValue: state.objectValue
       }

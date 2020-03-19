@@ -31,7 +31,7 @@ export default class InputUnit extends Component {
   onChangeFn = () => {
     var value = this.state.tags
     this.setState(state => {
-      state.objectValue[this.state.object.id][0] = value
+      state.objectValue[state.object.id][0] = value
       return {
         objectValue: state.objectValue
       }
