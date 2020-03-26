@@ -1,4 +1,5 @@
 import axios from "axios"
+import request from "./request.js"
 var qs = require("qs")
 
 //发送string请求方法
@@ -45,7 +46,6 @@ var ask = axios.create({
     return JSON.stringify(params)
   }
 })
-import request from "./request.js"
 var jsonTest = process.env.NODE_ENV == "development" && false //测试数据
 
 export function getSomeThing(param) {

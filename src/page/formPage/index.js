@@ -75,7 +75,7 @@ export default class accountmanagement extends Component {
     units.forEach((item, index) => {
       unitx.push(
         <TheUnit
-          key={index}
+          key={item.id}
           object={item}
           objectValue={objectValue}
           onChangeFn={this.onChangeFn}
